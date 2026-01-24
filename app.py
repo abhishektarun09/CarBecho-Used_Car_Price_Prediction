@@ -6,6 +6,7 @@ from blueprints.account_management.routes import accounts_bp
 from blueprints.account_management.change_password import change_password_bp
 from blueprints.prediction.routes import prediction_bp
 from blueprints.index.routes import index_bp
+from blueprints.api.prediction_api import prediction_api
 
 from src.config import Config
 from database import db
@@ -27,6 +28,9 @@ app.register_blueprint(accounts_bp)
 app.register_blueprint(change_password_bp)
 
 app.register_blueprint(prediction_bp)
+
+csrf.exempt(prediction_api)
+app.register_blueprint(prediction_api)
 
 if __name__ == "__main__":      
     app.run(host = "0.0.0.0", port = 80, debug = True) 
