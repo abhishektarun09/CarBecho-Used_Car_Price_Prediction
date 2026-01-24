@@ -2,22 +2,9 @@ from flask import request, Blueprint, jsonify
 from babel.numbers import format_currency
 
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
-
+from src.schemas.prediction_schema import PredictionRequestSchema
 
 prediction_api = Blueprint("prediction_api", __name__)
-
-REQUIRED_FIELDS = [
-    "km_driven",
-    "fuel",
-    "seller_type",
-    "transmission",
-    "owner",
-    "mileage",
-    "engine",
-    "max_power",
-    "seats",
-    "age"
-]
 
 @prediction_api.route('/api/v1/predict', methods=['POST'])
 def predict_api():
@@ -28,26 +15,20 @@ def predict_api():
         }), 415
         
     data = request.get_json()
-    
-    for field in REQUIRED_FIELDS:
-        if field not in data:
-            return jsonify({
-                "success" : False,
-                "error": f"Missing required field: {field}"
-            }), 400
             
     try:
+        payload = PredictionRequestSchema(**data)
         custom_data = CustomData(
-            km_driven=data['km_driven'],
-            fuel=data['fuel'],
-            seller_type=data['seller_type'],
-            transmission=data['transmission'],
-            owner=data['owner'],
-            mileage=data['mileage'],
-            engine=data['engine'],
-            max_power=data['max_power'],
-            seats=data['seats'],
-            age=data['age']
+            km_driven=payload.km_driven,
+            fuel=payload.fuel,
+            seller_type=payload.seller_type,
+            transmission=payload.transmission,
+            owner=payload.owner,
+            mileage=payload.mileage,
+            engine=payload.engine,
+            max_power=payload.max_power,
+            seats=payload.seats,
+            age=payload.age
         )
         pred_df = custom_data.get_data_as_data_frame()
         predict_pipeline = PredictPipeline()        
