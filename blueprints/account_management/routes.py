@@ -19,18 +19,18 @@ def login():
     if request.method == "POST":
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         # Query database for username
         user = User.query.filter_by(username=request.form.get("username")).first()
 
         # Ensure username exists and password is correct
         if not user or not check_password_hash(user.hash, request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+            return apology("invalid username and/or password", 401)
 
         # Remember which user has logged in
         session["user_id"] = user.id
@@ -54,7 +54,7 @@ def logout():
     flash("You have logged out successfully.")
 
     # Redirect user to login form
-    return redirect("/")
+    return redirect("/"), 302
 
 @accounts_bp.route("/register", methods=["GET", "POST"])
 def register():
@@ -85,7 +85,7 @@ def register():
             # Check if username already exists
             existing_user = User.query.filter_by(username=request.form.get("username")).first()
             if existing_user:
-                return apology("think of another username", 400)
+                return apology("think of another username", 409)
 
             # Create and add user
             new_user = User(username=request.form.get("username"), hash=hash)
@@ -98,7 +98,7 @@ def register():
             flash("Registered!")
 
             # Redirect user to home page
-            return redirect("/")
+            return redirect("/"), 302
 
         except Exception as e:
             # raise CustomException(e, sys)
