@@ -16,6 +16,7 @@ Flask-Session==0.8.0
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==1.2.1
 greenlet==3.3.1
+gunicorn==25.0.3
 idna==3.11
 iniconfig==2.3.0
 itsdangerous==2.2.0
@@ -51,4 +52,3 @@ tzdata==2025.3
 urllib3==1.26.20
 Werkzeug==3.0.6
 WTForms==3.2.1
-- e.
