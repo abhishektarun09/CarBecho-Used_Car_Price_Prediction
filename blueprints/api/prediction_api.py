@@ -2,7 +2,7 @@ from flask import request, Blueprint, jsonify
 from babel.numbers import format_currency
 
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
-from src.schemas.prediction_schema import PredictionRequestSchema
+from src.pydantic_schemas.prediction_schema import PredictionRequestSchema
 
 prediction_api = Blueprint("prediction_api", __name__)
 

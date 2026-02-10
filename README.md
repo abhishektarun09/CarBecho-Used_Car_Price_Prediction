@@ -27,10 +27,10 @@ This project is an **end-to-end machine learning solution** that predicts the **
 - **Machine Learning**: Regression models trained and tuned to predict car prices.
 - **Best Model**: GradientBoostingRegressor with hyperparameter tuning via GridSearchCV.
 - **Modular Code**: Structured into pipelines, custom exceptions, and logging.
-- **Web App**: Built using Flask with HTML/CSS.
+- **Web App**: Built using Flask with HTML, CSS, and JavaScript.
 - **Authentication**: Secure login, register, change password, logout.
-- **Database**: MySQL Server on Microsoft Azure.
-- **Deployment**: Dockerized app deployed on Azure with CI/CD via GitHub Actions.
+- **Database**: PostgreSQL Server on Neon.
+- **Deployment**: Dockerized app deployed on Render.
 
 ---
 
@@ -69,9 +69,8 @@ This project is an **end-to-end machine learning solution** that predicts the **
 |---------------|--------------------------------------------------------|
 | Backend (ML)  | `sklearn`, `xgboost`, `catboost`                       |
 | Data Prep     | `pandas`, `sklearn.Pipeline`, `OneHotEncoder`         |
-| Frontend      | `Flask`, `HTML`, `CSS`                                 |
-| Auth & DB     | `Flask-Login`, `Azure Database for MySQL flexible server`                     |
-| CI/CD         | `GitHub Actions`, `Docker`, `Azure App Service`      |
+| Frontend      | `Flask`, `HTML`, `CSS`, `JavaScript`                              |
+| Auth & DB     | `Flask-Login`, `PostgreSQL Database on Neon`                     |
 | Python Ver    | `3.8`                                                  |
 
 
@@ -82,10 +81,9 @@ This project is an **end-to-end machine learning solution** that predicts the **
 
 ## 🚀 Deployment
 
-The entire application is **containerized with Docker** and deployed to **Microsoft Azure**. Deployment is automated using **GitHub Actions**, which handles:
+The entire application is **containerized with Docker** and deployed to **Render**. Deployment is automated, which handles:
 
 - Building the Docker image
-- Pushing to Azure
 - Managing environment secrets securely
 
 ---
@@ -121,16 +119,25 @@ Users input the car's details and receive an **instant resale price prediction**
 ## 📦 Setup Instructions
 
 1. **Clone the Repository**  
-   `git clone https://github.com/abhishektarun09/CS50x_Project.git`
+    ```bash
+    git clone https://github.com/abhishektarun09/CS50x_Project.git
 
 2. **Create Virtual Environment**  
-   `python -m venv venv && source venv/bin/activate`
+    ```bash
+    pip install virtualenv
+    venv\Scripts\activate
 
 3. **Install Dependencies**  
-   `pip install -r requirements.txt`
+    ```bash
+   pip install -r requirements.txt
 
 4. **Run Locally**  
-   `python app.py`
+    ```bash
+   python app.py
+
+5. **Go to browser**
+    ```bash
+    localhost:5000
 
 ---
 

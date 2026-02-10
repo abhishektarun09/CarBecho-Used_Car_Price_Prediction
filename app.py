@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_session import Session
 from flask_wtf import CSRFProtect
@@ -32,5 +34,6 @@ app.register_blueprint(prediction_bp)
 csrf.exempt(prediction_api)
 app.register_blueprint(prediction_api)
 
-if __name__ == "__main__":      
-    app.run(host = "0.0.0.0", port = 80) 
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
