@@ -1,4 +1,4 @@
-# 🚗 CarBecho - Sell your Old Car
+# 🚗 [CarBecho - Sell your Old Car](https://carbecho-used-car-price-prediction.onrender.com/)
 
 <p align="center">
   <img src="static\images\index.jpg" alt="Screenshot" width="400"/>
@@ -86,6 +86,8 @@ The entire application is **containerized with Docker** and deployed to **Render
 - Building the Docker image
 - Managing environment secrets securely
 
+Link: https://carbecho-used-car-price-prediction.onrender.com/
+
 ---
 
 ## 🔒 Authentication
@@ -122,20 +124,11 @@ Users input the car's details and receive an **instant resale price prediction**
     ```bash
     git clone https://github.com/abhishektarun09/CS50x_Project.git
 
-2. **Create Virtual Environment**  
+2. **Create and run Docker Image**  
     ```bash
-    pip install virtualenv
-    venv\Scripts\activate
+    docker-compose up --build
 
-3. **Install Dependencies**  
-    ```bash
-   pip install -r requirements.txt
-
-4. **Run Locally**  
-    ```bash
-   python app.py
-
-5. **Go to browser**
+3. **Go to browser**
     ```bash
     localhost:5000
 
