@@ -1,4 +1,4 @@
-# 🚗 [CarBecho - Sell your Old Car](https://carbecho-used-car-price-prediction.onrender.com/)
+# 🚗 [CarBecho - Sell your Old Car](https://carbecho-used-car-price-prediction-b2cu.onrender.com)
 
 <p align="center">
   <img src="static\images\index.jpg" alt="Screenshot" width="400"/>
@@ -86,7 +86,7 @@ The entire application is **containerized with Docker** and deployed to **Render
 - Building the Docker image
 - Managing environment secrets securely
 
-Link: https://carbecho-used-car-price-prediction.onrender.com/
+Link: https://carbecho-used-car-price-prediction-b2cu.onrender.com
 
 ---
 
